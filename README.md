@@ -1,6 +1,8 @@
 # IVAN
 智能视频分析网络--Intelligent video analysis network
 
+南京大学[R&L研究组](https://cs.nju.edu.cn/rl/)所有
+
 ## 依赖
 
 - opencv 3.2 (build with opencv_contrib-3.2.0)
@@ -9,33 +11,30 @@
 
 ## 开发说明
 
+### 开发人员名单
+| 姓名 | github  | 详情情况 |
+| ------------ | ------------ | ------------ |
+| xxx | xxx | xxx |
+
 ### 命名规则
 
-- 变量命名
-
- 第一个单词首字母小写，其余大写。例如：
+- 变量命名。第一个单词首字母小写，其余大写。例如：
 ```cpp
 int maxDepth,int depth
 ```
 
-- 函数命名
-
- 第一个单词首字母小写，其余大写。例如：
+- 函数命名。第一个单词首字母小写，其余大写。例如：
 ```cpp
 getTrainSamples(…)
 ```
 
-- 固定变量、宏定义
-
- 所有字母大写，字母间用‘ _’隔开。例如:
+- 固定变量、宏定义。所有字母大写，字母间用‘ _’隔开。例如:
 ```cpp
 const int MAX_TREE_DEPTH = 32;
 #define HAVE_OPENCV_CALIB3D
 ```
 
-- 结构体、类
-
- 每个单词首字母大写。例如：
+- 结构体、类。每个单词首字母大写。例如：
 ``` cpp
 struct SubTree
 {
