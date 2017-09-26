@@ -6,5 +6,4 @@ SUBDIRS += \
     basic_algorithm \
     advanced_algorithm \
     control_logic \
-    BUILD_ALL \
     test

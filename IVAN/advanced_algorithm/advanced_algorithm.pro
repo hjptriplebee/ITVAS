@@ -33,3 +33,17 @@ unix {
     target.path = /usr/lib
     INSTALLS += target
 }
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../core/release/ -lcore
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../core/debug/ -lcore
+else:unix: LIBS += -L$$OUT_PWD/../core/ -lcore
+
+INCLUDEPATH += $$PWD/../core
+DEPENDPATH += $$PWD/../core
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../basic_algorithm/release/ -lbasic_algorithm
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../basic_algorithm/debug/ -lbasic_algorithm
+else:unix: LIBS += -L$$OUT_PWD/../basic_algorithm/ -lbasic_algorithm
+
+INCLUDEPATH += $$PWD/../basic_algorithm
+DEPENDPATH += $$PWD/../basic_algorithm

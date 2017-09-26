@@ -23,13 +23,41 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        core.cpp
+        core.cpp \
+    Blob.cpp \
+    core.cpp \
+    Blob.cpp \
+    computationalgeometry.cpp \
+    core.cpp
 
 HEADERS += \
         core.h \
-        core_global.h 
+        core_global.h \ 
+    Blob.h \
+    core.h \
+    core_global.h \
+    Blob.h \
+    ComputationalGeometry.h \
+    core.h \
+    core_global.h
 
 unix {
     target.path = /usr/lib
     INSTALLS += target
 }
+
+
+INCLUDEPATH += D:\opencv\build\install\include
+INCLUDEPATH += D:\opencv\build\install\include\opencv
+INCLUDEPATH += D:\opencv\build\install\include\opencv2
+
+LIBS +=D:\opencv\build\install\x64\vc14\lib\opencv_core320.lib
+LIBS +=D:\opencv\build\install\x64\vc14\lib\opencv_core320d.lib
+LIBS +=D:\opencv\build\install\x64\vc14\lib\opencv_highgui320.lib
+LIBS +=D:\opencv\build\install\x64\vc14\lib\opencv_highgui320d.lib
+LIBS +=D:\opencv\build\install\x64\vc14\lib\opencv_imgproc320.lib
+LIBS +=D:\opencv\build\install\x64\vc14\lib\opencv_imgproc320d.lib
+LIBS +=D:\opencv\build\install\x64\vc14\lib\opencv_tracking320.lib
+LIBS +=D:\opencv\build\install\x64\vc14\lib\opencv_video320.lib
+LIBS +=D:\opencv\build\install\x64\vc14\lib\opencv_videoio320.lib
+LIBS +=D:\opencv\build\install\x64\vc14\lib\opencv_videostab320.lib
