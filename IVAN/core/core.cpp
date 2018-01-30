@@ -1,6 +1,1 @@
-#include "core.h"
-
-
-Core::Core()
-{
-}
+#include<Core.h>

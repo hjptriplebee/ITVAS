@@ -1,12 +1,12 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2017-09-20T15:56:17
+# Project created by QtCreator 2017-12-26T21:18:32
 #
 #-------------------------------------------------
 
 QT       -= gui
 
-TARGET = core
+TARGET = Core
 TEMPLATE = lib
 
 DEFINES += CORE_LIBRARY
@@ -23,41 +23,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        core.cpp \
     Blob.cpp \
-    core.cpp \
-    Blob.cpp \
-    computationalgeometry.cpp \
-    core.cpp
+    BlobPerson.cpp \
+    BlobVehicle.cpp
 
-HEADERS += \
-        core.h \
-        core_global.h \ 
+HEADERS += \   
+    Core.h \
     Blob.h \
-    core.h \
-    core_global.h \
-    Blob.h \
-    ComputationalGeometry.h \
-    core.h \
-    core_global.h
+    BlobPerson.h \
+    BlobVehicle.h
 
 unix {
     target.path = /usr/lib
     INSTALLS += target
 }
-
-
-INCLUDEPATH += D:\opencv\build\install\include
-INCLUDEPATH += D:\opencv\build\install\include\opencv
-INCLUDEPATH += D:\opencv\build\install\include\opencv2
-
-LIBS +=D:\opencv\build\install\x64\vc14\lib\opencv_core320.lib
-LIBS +=D:\opencv\build\install\x64\vc14\lib\opencv_core320d.lib
-LIBS +=D:\opencv\build\install\x64\vc14\lib\opencv_highgui320.lib
-LIBS +=D:\opencv\build\install\x64\vc14\lib\opencv_highgui320d.lib
-LIBS +=D:\opencv\build\install\x64\vc14\lib\opencv_imgproc320.lib
-LIBS +=D:\opencv\build\install\x64\vc14\lib\opencv_imgproc320d.lib
-LIBS +=D:\opencv\build\install\x64\vc14\lib\opencv_tracking320.lib
-LIBS +=D:\opencv\build\install\x64\vc14\lib\opencv_video320.lib
-LIBS +=D:\opencv\build\install\x64\vc14\lib\opencv_videoio320.lib
-LIBS +=D:\opencv\build\install\x64\vc14\lib\opencv_videostab320.lib

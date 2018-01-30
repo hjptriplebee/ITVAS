@@ -1,12 +1,12 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2017-09-20T15:58:30
+# Project created by QtCreator 2017-12-26T21:38:13
 #
 #-------------------------------------------------
 
 QT       -= gui
 
-TARGET = basic_algorithm
+TARGET = Basic_algorithm
 TEMPLATE = lib
 
 DEFINES += BASIC_ALGORITHM_LIBRARY
@@ -23,20 +23,34 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        basic_algorithm.cpp
+    Detection.cpp \
+    DetectionRCNN.cpp \
+    DetectionFrameDiff.cpp \
+    Match.cpp
 
 HEADERS += \
-        basic_algorithm.h \
-        basic_algorithm_global.h 
+    Basic_algorithm.h \
+    Detection.h \
+    DetectionRCNN.h \
+    DetectionFrameDiff.h \
+    Match.h
 
 unix {
     target.path = /usr/lib
     INSTALLS += target
 }
 
-win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../core/release/ -lcore
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../core/debug/ -lcore
-else:unix: LIBS += -L$$OUT_PWD/../core/ -lcore
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../Core/release/ -lCore
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../Core/debug/ -lCore
+else:unix: LIBS += -L$$OUT_PWD/../Core/ -lCore
 
-INCLUDEPATH += $$PWD/../core
-DEPENDPATH += $$PWD/../core
+INCLUDEPATH += $$PWD/../Core
+DEPENDPATH += $$PWD/../Core
+
+DISTFILES += \
+    Detection.config
+
+INCLUDEPATH += /home/jipeng/anaconda3/include/python3.6m
+INCLUDEPATH += /home/jipeng/anaconda3/lib/python3.6/site-packages/numpy/core/include/numpy
+LIBS += -lpython3.6m
+
