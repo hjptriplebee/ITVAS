@@ -12,8 +12,8 @@ DetectionRCNN::DetectionRCNN(string path) : Detection(path)
     Py_Initialize();
     PyRun_SimpleString("import sys");
     PyRun_SimpleString("sys.path.append('/data/jipeng/IVAN/interface/')");
-    PyRun_SimpleString("sys.path.append('/home/jipeng/models-master/research/')");
-    PyRun_SimpleString("sys.path.append('/home/jipeng/models-master/research/slim/')");
+    PyRun_SimpleString("sys.path.append('/data/jipeng/IVAN/models-master/research/')");
+    PyRun_SimpleString("sys.path.append('/data/jipeng/IVAN/models-master/research/slim/')");
 
     pModule = PyImport_ImportModule("DLDetection");
     // load module

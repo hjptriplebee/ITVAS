@@ -9,9 +9,6 @@
 #include <Core.h>
 #include <Basic_algorithm.h>
 
-#include<Python.h>
-//#include</home/jipeng/anaconda3/include/python3.6m/Python.h>
-#include</home/jipeng/anaconda3/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h>
 
 using namespace std;
 using namespace cv;

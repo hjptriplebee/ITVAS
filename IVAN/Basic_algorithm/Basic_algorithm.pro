@@ -41,8 +41,8 @@ unix {
 }
 
 
-INCLUDEPATH += /home/jipeng/anaconda3/include/python3.6m
-INCLUDEPATH += /home/jipeng/anaconda3/lib/python3.6/site-packages/numpy/core/include/numpy
+INCLUDEPATH += /data/jipeng/IVAN/anaconda3/include/python3.6m
+INCLUDEPATH += /data/jipeng/IVAN/anaconda3/lib/python3.6/site-packages/numpy/core/include/numpy
 LIBS += -lpython3.6m
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../Core/release/ -lCore

@@ -13,7 +13,7 @@
 #include <opencv2/core.hpp>
 using namespace cv;
 #include <Python.h>
-#include </home/jipeng/anaconda3/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h>
+#include </data/jipeng/IVAN/anaconda3/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h>
 
 //c++ library
 #include <list>
