@@ -36,3 +36,56 @@ bool Geometry::isSegmentCross(const Point &A1, const Point &A2, const Point &B1,
     if (crossProduct(AB, AC) * crossProduct(AB, AD) < 0 || crossProduct(CD, CA) * crossProduct(CD, CB)) return true;
     return false;
 }
+
+bool Geometry::isOverlapped(const Rect &box1, const Rect &box2, double IOUThreshold)
+{
+    Point tl1 = box1.tl(), br1 = box1.br();
+    Point tl2 = box2.tl(), br2 = box2.br();
+    if (tl1.x > br2.x) return false; //disjoint from each other
+    if (tl1.y > br2.y) return false;
+    if (tl2.x > br1.x) return false;
+    if (tl2.y > br1.y) return false;
+    int colInt = min(br1.x, br2.x) - max(tl1.x, tl2.x);
+    int rowInt = min(br1.y, br2.y) - max(tl1.y, tl2.y);
+    int intersection = colInt * rowInt;
+    if ((float)intersection / box1.area() > IOUThreshold) return true;
+
+    return false;
+}
+
+bool cmpNMS(const Blob &a, const Blob &b)
+{
+    return a.getScore() > b.getScore();
+}
+
+bool isBlobScoreDecendingOrder(list<Blob> &blobs)
+{
+    double preScore = 1e9;
+    for (auto blob : blobs)
+    {
+        if(blob.getScore() > preScore) return false;
+        preScore = blob.getScore();
+    }
+    return true;
+}
+
+void Geometry::nonMaximumSuppression(list<Blob> &blobs, double IOUThreshold)
+{
+    if(!isBlobScoreDecendingOrder(blobs)) blobs.sort(cmpNMS); //not sorted
+    for(auto it = blobs.begin(); it != blobs.end();)
+    {
+        bool eraseFlag = false;
+        for(auto it2 = blobs.begin(); it2 != it;)
+        {
+            if(isOverlapped(it->getBBox(), it2->getBBox(), IOUThreshold))
+            {
+                blobs.erase(it++);
+                eraseFlag = true;
+                break;
+            }
+            else
+                it2++;
+        }
+        if(!eraseFlag) it++;
+    }
+}

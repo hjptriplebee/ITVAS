@@ -15,13 +15,16 @@ using namespace cv;
 //c++ library
 #include <math.h>
 #include <vector>
+#include <list>
+#include <algorithm>
+#include <iostream>
 using namespace std;
 
 //other inner file
 #include "Core.h"
 
 //inner file
-#include "Common_global.h"
+//#include "Common_global.h"
 #include "Geometry.h"
 #include "Show.h"
 

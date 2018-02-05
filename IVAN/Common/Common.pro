@@ -28,7 +28,7 @@ SOURCES += \
 
 HEADERS += \
     Common.h \
-    Common_global.h \
+    #Common_global.h \
     Geometry.h \
     Show.h
 

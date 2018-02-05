@@ -8,13 +8,14 @@ SOURCES += main.cpp
 INCLUDEPATH += /usr/local/include
 INCLUDEPATH += /usr/local/include/opencv
 INCLUDEPATH += /usr/local/include/opencv2
-INCLUDEPATH += /home/jipeng/anaconda3/include/python3.6m
+INCLUDEPATH += /data/jipeng/IVAN/anaconda3/include/python3.6m
 
 LIBS += /usr/local/lib/libopencv_highgui.so
 LIBS += /usr/local/lib/libopencv_core.so
 LIBS += /usr/local/lib/libopencv_imgproc.so
 LIBS += /usr/local/lib/libopencv_videoio.so
 LIBS += /usr/local/lib/libopencv_imgcodecs.so
+LIBS += /usr/local/lib/libopencv_tracking.so
 LIBS += -lpython3.6m
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../Core/release/ -lCore
@@ -32,3 +33,10 @@ else:unix: LIBS += -L$$OUT_PWD/../Basic_algorithm/ -lBasic_algorithm
 
 INCLUDEPATH += $$PWD/../Basic_algorithm
 DEPENDPATH += $$PWD/../Basic_algorithm
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../Common/release/ -lCommon
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../Common/debug/ -lCommon
+else:unix: LIBS += -L$$OUT_PWD/../Common/ -lCommon
+
+INCLUDEPATH += $$PWD/../Common
+DEPENDPATH += $$PWD/../Common

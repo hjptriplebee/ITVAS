@@ -64,17 +64,28 @@ list<Blob> DetectionFrameDiff::detect(const Mat &pre, const Mat &cur) const
     {
         convexHull(contours[i], convexHulls[i]);
         Blob possibleBlob(convexHulls[i]);
-        if(contourArea(convexHulls[i]) / (double)possibleBlob.getArea() > 0.5) result.push_back(possibleBlob); //contour area / rect area
+        if(contourArea(convexHulls[i]) / (double)possibleBlob.getArea() > 0.5  && !isFilter(possibleBlob)) //contour area / rect area and size filter
+        {
+            bool overlappedFlag = false;
+            for(auto pre : result) //filter for overlapped blobs
+            {
+                if(Geometry::isOverlapped(pre.getBBox(), possibleBlob.getBBox(), 0.8))
+                {
+                    overlappedFlag = true;
+                    if(pre.getArea() < possibleBlob.getArea()) pre = possibleBlob;
+                    break;
+                }
+            }
+            if(!overlappedFlag) result.push_back(possibleBlob);
+        }
     }
 
-    filter(result);
-
-    if(SHOW_DETECTIONFRAMEDIFF)
-    {
+#ifdef SHOW_DETECTIONFRAMEDIFF
         imshow("imgThresh", imgThresh);
-        //Show::showContours(imgThresh.size(), contours, "imgContours");
-        //Show::showContours(imgThresh.size(), convexHulls, "imgConvexHulls");
-    }
+        Show::showContours(imgThresh.size(), contours, "imgContours");
+        Show::showContours(imgThresh.size(), convexHulls, "imgConvexHulls");
+        Show::showBBox(imgThresh.size(), result, "imgCurrentBlobs");
+#endif
 
     return result;
 }

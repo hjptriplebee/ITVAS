@@ -22,7 +22,7 @@ using namespace std;
 
 //other inner file
 #include "Core.h"
-//#include "Common.h"
+#include "Common.h"
 
 //inner file
 //#include "Basic_algorithm_global.h"
@@ -32,6 +32,6 @@ using namespace std;
 #include "Match.h"
 
 //define
-#define SHOW_DETECTIONFRAMEDIFF true
+#define SHOW_DETECTIONFRAMEDIFF
 
 #endif // BASIC_ALGORITHM_H

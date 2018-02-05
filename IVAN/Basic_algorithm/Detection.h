@@ -43,6 +43,12 @@ public:
      * ***************************************/
     void filter(list<Blob> &blobs) const;
     /*****************************************
+     *  @brief filter impossible blob with parameters
+     *  @param blob: blob for filter
+     *  @return True: filter False: it's a blob and don't remove
+     * ***************************************/
+    bool isFilter(Blob &blob) const;
+    /*****************************************
      *  @brief friend function: reload << to test
      * ***************************************/
     friend ostream& operator<<(ostream &out, const Detection &D);

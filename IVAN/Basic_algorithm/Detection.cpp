@@ -38,17 +38,25 @@ void Detection::filter(list<Blob> &blobs) const
 {
     for(auto it = blobs.begin(); it != blobs.end();)
     {
-        if(
-                it->getArea() < minArea || it->getArea() > maxArea ||
-                it->getRatio() < minRatio || it->getRatio() > maxRatio ||
-                it->getWidth() < minWidth || it->getWidth() > maxWidth ||
-                it->getHeight() < minHeight || it->getHeight() > maxHeight ||
-                it->getDiagonal() < minDiagonal || it->getDiagonal() > maxDiagonal
-          )
-            blobs.erase(it);
+        if(isFilter(*it))
+            blobs.erase(it++); //list delete !!!!!! Attention, must in this format
         else
             it++;
     }
+}
+
+bool Detection::isFilter(Blob &blob) const
+{
+    if(
+        blob.getArea() < minArea || blob.getArea() > maxArea ||
+        blob.getRatio() < minRatio || blob.getRatio() > maxRatio ||
+        blob.getWidth() < minWidth || blob.getWidth() > maxWidth ||
+        blob.getHeight() < minHeight || blob.getHeight() > maxHeight ||
+        blob.getDiagonal() < minDiagonal || blob.getDiagonal() > maxDiagonal
+    )
+        return true;
+    else
+        return false;
 }
 
 ostream& operator<<(ostream &out, const Detection &D)

@@ -42,5 +42,21 @@ public:
      *  @return false: not crossed
      * ***************************************/
     static bool isSegmentCross(const Point &A1, const Point &A2, const Point &B1, const Point &B2);
+    /*****************************************
+     *  @brief judge if two Rectangles ara overlapped
+     *  @param box1 : Rect A
+     *  @param box2: Rect B
+     *  @param IOUthreshold: threshold
+     *  @return true: overlapped
+     *  @return false: not overlapped
+     * ***************************************/
+    static bool isOverlapped(const Rect &box1, const Rect &box2, double IOUThreshold);
+    /*****************************************
+     *  @brief non maximum suppression
+     *  @param blobs
+     *  @param box2: Rect B
+     *  @param IOUthreshold: threshold
+     * ***************************************/
+    static void nonMaximumSuppression(list<Blob> &blobs, double IOUThreshold);
 };
 #endif // GEOMETRY_H

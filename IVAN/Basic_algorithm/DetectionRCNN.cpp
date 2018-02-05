@@ -40,17 +40,17 @@ list<Blob> DetectionRCNN::detect(const Mat &frame)
 
     if (PyList_Check(pFunctionBack)) //result of detection is not empty
     {
-        int box[5];
+        double box[5];
         for(int i = 0; i < PyList_Size(pFunctionBack); i++)
         {
             pReturnItem = PyList_GetItem(pFunctionBack, i); //get i-th item
             box[i % 5] = PyFloat_AsDouble(pReturnItem);
-
             if(i % 5 == 4) //An object has processed
                 result.push_back(Blob(Rect(Point(box[1], box[2]), Point(box[3], box[4])), box[0]));
         }
     }
     filter(result);
+    Geometry::nonMaximumSuppression(result, 0.8);
     return  result;
 }
 

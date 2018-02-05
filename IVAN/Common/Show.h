@@ -26,6 +26,13 @@ public:
      *  @param windowName: window name
      * ***************************************/
     static void showContours(const Size size, const vector<Blob> &blobs, const string windowName);
+    /*****************************************
+     *  @brief show bbox
+     *  @param size: image size
+     *  @param blobs: blobs
+     *  @param windowName: window name
+     * ***************************************/
+    static void showBBox(const Size size, const list<Blob> &blobs, const string windowName);
 };
 
 #endif // SHOW_H
