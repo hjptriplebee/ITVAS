@@ -1,5 +1,5 @@
-# IVAN
-智能视频分析网络--Intelligent video analysis network
+# ITVAS
+智能交通视频分析系统--Intelligent Traffic Video Analysis System
 
 南京大学[R&L研究组](https://cs.nju.edu.cn/rl/)所有
 

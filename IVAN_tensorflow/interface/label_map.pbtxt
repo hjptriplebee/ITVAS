@@ -1,0 +1,25 @@
+item {
+  id: 1
+  name: 'minibus'
+}
+
+item {
+  id: 2
+  name: 'bus'
+}
+item {
+  id: 3
+  name: 'smalltruck'
+}
+item {
+  id: 4
+  name: 'mediumtruck'
+}
+item {
+  id: 5
+  name: 'largetruck'
+}
+item {
+  id: 6
+  name: 'trailer'
+}
