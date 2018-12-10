@@ -35,7 +35,6 @@ import pdb
 
 xrange = range  # Python 3
 
-
 GPU='0'
 
 def parse_args():
